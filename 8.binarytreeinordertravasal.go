@@ -1,6 +1,5 @@
 package main
 
-// Binary tree
 func inorderTraversal(root *TreeNode) []int {
     if root == nil {
         return []int{}
