@@ -6,6 +6,13 @@ type TreeNode struct {
     Right *TreeNode
 }
 
+
+type ListNode struct {
+    Val int
+    Next *ListNode
+}
+
+
 func hasPathSum(root *TreeNode, targetSum int) bool {
     var pathSum func(a *TreeNode, sum int) bool
 
