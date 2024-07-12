@@ -33,11 +33,3 @@ func getMinimumDifference(root *TreeNode) int {
 
     return minValue
 }
-
-func _abs(x int) int {
-    if x < 0 {
-        return -x
-    }
-
-    return x
-}
