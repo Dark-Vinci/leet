@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -40,7 +39,4 @@ func reverse(x int) int {
     }
 
     return result
-}
-func main() {
-	fmt.Printf("%v", reverse(2929943949))
 }
