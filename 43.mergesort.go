@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func mergeSort(arr []int) []int {
 	var recurse func(a []int) []int
 	
