@@ -4,6 +4,8 @@ func findTilt(root *TreeNode) int {
     if root == nil {
         return 0
     }
+    
+    sum := 0
 
     var dfs func (node *TreeNode) (*TreeNode, int)
 
@@ -20,6 +22,8 @@ func findTilt(root *TreeNode) int {
         rNode, rValues := dfs(node.Right)
 
         diff := abs(lValues - rValues)
+        
+        sum += diff
 
         newVal := node.Val + rValues + lValues
 
@@ -31,17 +35,7 @@ func findTilt(root *TreeNode) int {
         newVal
     }
 
-    node, _ := dfs(root)
+    dfs(root)
 
-    var dfsSum func(node *TreeNode) int
-
-    dfsSum = func(node *TreeNode) int {
-        if node == nil {
-            return 0
-        }
-
-        return node.Val + dfsSum(node.Left) + dfsSum(node.Right)
-    }
-
-    return dfsSum(node)
+    return sum
 }
