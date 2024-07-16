@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 func quickSort(arr []int) []int {
-	
 	var recurse func(a []int) [] int
 	
 	recurse = func(a []int) []int {

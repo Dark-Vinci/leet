@@ -23,3 +23,4 @@ func isValidBST(root *TreeNode) bool {
 
     return isBST(root, math.MinInt, math.MaxInt)
 }
+
