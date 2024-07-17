@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func quickSort(arr []int) []int {
 	var recurse func(a []int) [] int
 	
@@ -45,12 +43,4 @@ func finds(arr []int, pivot int, min bool) []int {
 	
 	
 	return result
-}
-
-func main() {
-	arr := []int {100, 3, 7, 0, 1000, 556728, 7,88}
-	
-	res := quickSort(arr)
-	
-	fmt.Println(res)
 }
