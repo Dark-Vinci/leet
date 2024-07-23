@@ -1,26 +1,26 @@
 package main
 
-func maxxDepth(root *Node) int {
-    var dfs func(r *Node, depth int)
-    var max int
+func masDepth(root *Node) int {
+	var dfs func(r *Node, depth int)
+	var maxDepth int
 
-    dfs = func(r *Node, depth int) {
-        if r == nil {
-            return
-        }
+	dfs = func(r *Node, depth int) {
+		if r == nil {
+			return
+		}
 
-        depth++
+		depth++
 
-        if max < depth {
-            max = depth
-        }
+		if maxDepth < depth {
+			maxDepth = depth
+		}
 
-        for _, child := range r.Children {
-            dfs(child, depth)
-        }
-    }
+		for _, child := range r.Children {
+			dfs(child, depth)
+		}
+	}
 
-    dfs(root, 0)
+	dfs(root, 0)
 
-    return max
+	return maxDepth
 }
