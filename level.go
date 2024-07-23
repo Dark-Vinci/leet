@@ -1,7 +1,7 @@
 package main
 
 func lievelOrder(root *TreeNode) [][]int {
-	result := [][]int{}
+	var result [][]int
 
 	if root == nil {
 		return result
@@ -11,7 +11,7 @@ func lievelOrder(root *TreeNode) [][]int {
 
 	for len(queue) > 0 {
 		size := len(queue)
-		nums := []int{}
+		var nums []int
 		for i := 0; i < size; i++ {
 			curr := queue[0]
 			queue = queue[1:]
