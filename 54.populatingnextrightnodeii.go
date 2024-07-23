@@ -1,4 +1,4 @@
-rtthepackage main
+package main
 
 func connect1(root *HNode) *HNode {
 	if root == nil {
