@@ -44,11 +44,11 @@ func combinationSum(candidates []int, target int) [][]int {
 }
 
 func sum(a []int) int {
-	sum := 0
+	result := 0
 
 	for _, v := range a {
-		sum += v
+		result += v
 	}
 
-	return sum
+	return result
 }
