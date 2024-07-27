@@ -80,10 +80,10 @@ func permutation(s string) []string {
 	return result
 }
 
-func main() {
-	//a := combination("122")
-	//b := formula("CCABBA")
-	_ = permutation("ABC")
-
-	//fmt.Println(c)
-}
+//func main() {
+//	//a := combination("122")
+//	//b := formula("CCABBA")
+//	_ = permutation("ABC")
+//
+//	//fmt.Println(c)
+//}
