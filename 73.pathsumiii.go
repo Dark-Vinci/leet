@@ -10,14 +10,14 @@ func pathSum3(root *TreeNode, targetSum int) int {
 			return
 		}
 
-		bbb := 0
+		sum := 0
 
 		prev = append(prev, r.Val)
 
 		for i := len(prev) - 1; i >= 0; i-- {
-			bbb += prev[i]
+			sum += prev[i]
 
-			if bbb == targetSum {
+			if sum == targetSum {
 				count++
 			}
 		}
