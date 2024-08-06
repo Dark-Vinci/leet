@@ -4,39 +4,37 @@ import "slices"
 
 // BT AND BST
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
-    var dfs func(r *TreeNode) ([]int, *TreeNode)
+	var dfs func(r *TreeNode) ([]int, *TreeNode)
 
-    dfs = func (r *TreeNode) ([]int, *TreeNode) {
-        if r == nil {
-            return []int{}, nil
-        }
+	dfs = func(r *TreeNode) ([]int, *TreeNode) {
+		if r == nil {
+			return []int{}, nil
+		}
 
-        left, lNode := dfs(r.Left)
+		left, lNode := dfs(r.Left)
 
-        if lNode != nil {
-            return []int{}, lNode
-        }
+		if lNode != nil {
+			return []int{}, lNode
+		}
 
-        right, rNode := dfs(r.Right)
+		right, rNode := dfs(r.Right)
 
-        if rNode != nil {
-            return []int{}, rNode
-        }
+		if rNode != nil {
+			return []int{}, rNode
+		}
 
-        curr := make([]int, 0)
+		curr := []int{r.Val}
 
-        curr = append(curr, r.Val)
+		curr = slices.Concat(left, right, curr)
 
-        curr = slices.Concat(left, right, curr)
+		if slices.Contains(curr, p.Val) && slices.Contains(curr, q.Val) {
+			return curr, r
+		}
 
-        if slices.Contains(curr, p.Val) && slices.Contains(curr, q.Val) {
-            return curr, r
-        }
+		return curr, nil
+	}
 
-        return curr, nil
-    }
+	_, result := dfs(root)
 
-    _, result := dfs(root)
-
-    return result
+	return result
 }
