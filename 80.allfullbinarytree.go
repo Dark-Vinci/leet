@@ -11,7 +11,7 @@ func allPossibleFBT(n int) []*TreeNode {
 		}
 		
 		if n%2 == 0 {
-			return []*TreeNode{}
+			return []*TreeNode{nil}
 		}
 
 		if n == 1 {
