@@ -46,11 +46,13 @@ func formula(s string) int {
 }
 
 func factorial(n int) int {
-	if n <= 1 {
-		return 1
+	result := 1
+
+	for i := 1; i <= n; i++ {
+		result *= i
 	}
 
-	return n * factorial(n-1)
+	return result
 }
 
 func permutation(s string) []string {

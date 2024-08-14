@@ -3,33 +3,58 @@ package main
 import (
 	"cmp"
 	"fmt"
+	"math"
 	"slices"
 	"strconv"
 	"strings"
 )
 
-// EXCEEDS TIME LIMIT(I DON TAYA)
+// right answer
 func getPermutation(n int, k int) string {
+	var (
+		pool   = make([]int, n)
+		result strings.Builder
+	)
+
+	for i := 1; i <= n; i++ {
+		pool[i-1] = i
+	}
+
+	for i := n; i > 0; i-- {
+		countPerBlock := factorial(i - 1)
+		containedBlock := int(math.Ceil(float64(k) / float64(countPerBlock)))
+
+		result.WriteString(fmt.Sprintf("%d", pool[containedBlock-1]))
+		pool = slices.Delete(pool, containedBlock-1, containedBlock)
+
+		k -= countPerBlock * (containedBlock - 1)
+	}
+
+	return result.String()
+}
+
+// EXCEEDS TIME LIMIT(I DON TAYA)[STILL WORTH IT THO]
+func getTimeLimitPermutation(n int, k int) string {
 	p := make([]string, 0)
 
-	var permute func(db string, i int)
-	permute = func(db string, i int) {
+	var permute func(prePerm string, i int)
+	permute = func(prePerm string, i int) {
 		if i > n {
 			return
 		}
 
 		i++
 
-		for j := 0; j <= len(db); j++ {
-			nSlice := strings.Split(db, "")
+		for j := 0; j <= len(prePerm); j++ {
+			nSlice := strings.Split(prePerm, "")
 			nSlice = slices.Insert(nSlice, j, fmt.Sprintf("%d", i-1))
 
-			str := strings.Join(nSlice, "")
+			postPerm := strings.Join(nSlice, "")
 
 			if i-1 == n {
-				p = append(p, str)
+				p = append(p, postPerm)
 			} else {
-				permute(str, i)
+				permute(postPerm, i)
 			}
 		}
 	}
