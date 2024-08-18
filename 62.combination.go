@@ -55,6 +55,29 @@ func factorial(n int) int {
 	return result
 }
 
+func newPermutation(s string) []string {
+	var result = make([]string, 0)
+
+	var recurse func(res string)
+	recurse = func(res string) {
+		if len(res) == len(s) {
+			result = append(result, res)
+			return
+		}
+
+		for i := 0; i < len(s); i++ {
+			if !strings.Contains(res, string(s[i])) {
+				newRes := res + string(s[i])
+				recurse(newRes)
+			}
+		}
+	}
+
+	recurse("")
+
+	return result
+}
+
 func permutation(s string) []string {
 	result := make([]string, 0)
 
@@ -81,11 +104,3 @@ func permutation(s string) []string {
 
 	return result
 }
-
-//func main() {
-//	//a := combination("122")
-//	//b := formula("CCABBA")
-//	_ = permutation("ABC")
-//
-//	//fmt.Println(c)
-//}

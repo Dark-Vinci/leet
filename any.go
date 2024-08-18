@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-func main() {
+func maikjn() {
 	for _, v := range []any{"hi", 42, func() {}, struct{}{}} {
 		switch v := reflect.ValueOf(v); v.Kind() {
 		case reflect.String:
