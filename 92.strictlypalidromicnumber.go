@@ -8,8 +8,6 @@ func isStrictlyPalindromic(n int) bool {
 	for curr <= n-2 {
 		numb := convertToBase(n, curr)
 
-		fmt.Println(numb)
-
 		if !isPalindrome(numb) {
 			return false
 		}
