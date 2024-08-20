@@ -25,7 +25,7 @@ O:
 	}
 
 	for i := 1; i <= 9; i++ {
-		iByte := byte(fmt.Sprintf("%v", i)[0])
+		iByte := fmt.Sprintf("%v", i)[0]
 
 		if isValidMove(b, iByte, r, c) {
 			b[r][c] = iByte
