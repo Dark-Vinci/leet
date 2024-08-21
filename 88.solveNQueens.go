@@ -162,10 +162,3 @@ Loop:
 
 	return res
 }
-
-func main() {
-	//a := solveNQueens(9)
-	a := []int{3, 2, 1}
-	nextPermutation(a)
-	fmt.Println(a)
-}
