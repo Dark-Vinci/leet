@@ -1,14 +1,15 @@
 package main
 
 func modifiedList(nums []int, head *ListNode) *ListNode {
-	var prev *ListNode
-	numsDb := make(map[int]struct{})
+	var (
+		prev   *ListNode
+		recur  func(h *ListNode)
+		numsDb = make(map[int]struct{})
+	)
 
 	for _, v := range nums {
 		numsDb[v] = struct{}{}
 	}
-
-	var recur func(h *ListNode)
 
 	recur = func(h *ListNode) {
 		if h == nil {
