@@ -1,7 +1,7 @@
 package main
 
 func convertBST(root *TreeNode) *TreeNode {
-	var dfs func(r *TreeNode, top int) int
+	var dfs func(*TreeNode, int) int
 
 	dfs = func(r *TreeNode, top int) int {
 		if r == nil {
