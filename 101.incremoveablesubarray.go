@@ -68,6 +68,7 @@ func incremovableSubarrayCountNOT(nums []int) int {
 	return result
 }
 
-func main() {
-	fmt.Println(incremovableSubarrayCount([]int{1, 2, 3, 4}))
-}
+//
+//func main() {
+//	fmt.Println(incremovableSubarrayCount([]int{1, 2, 3, 4}))
+//}
