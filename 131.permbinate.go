@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func permBinate(s string) int {
+func permutationCombination(s string) int {
 	var (
 		result = make([]string, 0)
 		dfs    func(prev []string, index int)
@@ -40,6 +40,6 @@ func permBinate(s string) int {
 }
 
 func main() {
-	a := permBinate("ACCCCBC")
+	a := permutationCombination("ACCCCBC")
 	fmt.Println(a)
 }
