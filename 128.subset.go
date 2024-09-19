@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"slices"
+	"strings"
 )
 
 func subsetsWithDup(nums []int) [][]int {
@@ -14,16 +15,16 @@ func subsetsWithDup(nums []int) [][]int {
 
 	dfs = func(i int, db []int) {
 		if i >= len(nums) {
-			str := ""
+			var str strings.Builder
 
 			slices.Sort(db)
 
 			for j := 0; j < len(db); j++ {
-				str += fmt.Sprintf("%v", db[j])
+				str.WriteString(fmt.Sprintf("%v", db[j]))
 			}
 
-			if _, ok := mp[str]; !ok {
-				mp[str] = struct{}{}
+			if _, ok := mp[str.String()]; !ok {
+				mp[str.String()] = struct{}{}
 				result = append(result, db)
 			}
 
