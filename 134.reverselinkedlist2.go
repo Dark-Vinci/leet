@@ -18,14 +18,12 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 
 		switch {
 		case count < left:
-			{
-				if newHead == nil {
-					newHead = current
-					newHeadTail = newHead
-				} else {
-					newHeadTail.Next = current
-					newHeadTail = current
-				}
+			if newHead == nil {
+				newHead = current
+				newHeadTail = newHead
+			} else {
+				newHeadTail.Next = current
+				newHeadTail = current
 			}
 
 		case isFullyReversed:

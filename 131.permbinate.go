@@ -34,8 +34,6 @@ func permutationCombination(s string) int {
 
 	dfs([]string{}, 0)
 
-	fmt.Println(result)
-
 	return len(result)
 }
 
