@@ -2,6 +2,42 @@ package main
 
 import "math"
 
+// solution that works for all conditions
+func widthOfBinaryTree(root *TreeNode) int {
+	type pair struct {
+		node  *TreeNode
+		index int
+	}
+
+	var (
+		q      = []pair{{root, 0}}
+		result = 0
+	)
+
+	for len(q) > 0 {
+		l := len(q)
+		start := q[0].index
+		end := q[l-1].index
+
+		result = max(end-start+1, result)
+
+		for i := 0; i < l; i++ {
+			c := q[0]
+			q = q[1:]
+
+			if c.node.Left != nil {
+				q = append(q, pair{node: c.node.Left, index: 2 * c.index})
+			}
+
+			if c.node.Right != nil {
+				q = append(q, pair{node: c.node.Right, index: (2 * c.index) + 1})
+			}
+		}
+	}
+
+	return result
+}
+
 func widthOfBinaryTreeEXCEED_TIME_LIMIT(root *TreeNode) int {
 	var (
 		q      = []*TreeNode{root}
