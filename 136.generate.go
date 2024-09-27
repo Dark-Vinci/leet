@@ -36,7 +36,7 @@ func (r *RandomizedSet) Remove(val int) bool {
 }
 
 func (r *RandomizedSet) GetRandom() int {
-	ind := int(rand.Float64() * float64((len(r.db))))
+	ind := int(rand.Float64() * float64(len(r.db)))
 
 	return r.db[ind]
 }
