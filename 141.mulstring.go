@@ -38,7 +38,7 @@ func multiply(num1 string, num2 string) string {
 	return string(result)
 }
 
-func multiply_INT_OVERFLOW_AT_LARGE_NUMBER(num1 string, num2 string) string {
+func multiply_INT_OVERFLOW(num1 string, num2 string) string {
 	var (
 		l1     = len(num1) - 1
 		l2     = len(num2) - 1
