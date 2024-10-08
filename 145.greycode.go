@@ -6,7 +6,8 @@ import (
 	"strconv"
 )
 
-func grayCodeMORE_ELEGANT(n int) (result []int) {
+func grayCodeMORE_ELEGANT(n int) []int {
+	result := make([]int, 0)
 
 	for i := 0; i < 1<<n; i++ {
 		result = append(result, i^(i>>1))
