@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-func maikjn() {
+func main() {
 	for _, v := range []any{"hi", 42, func() {}, struct{}{}} {
 		switch v := reflect.ValueOf(v); v.Kind() {
 		case reflect.String:
@@ -17,4 +17,16 @@ func maikjn() {
 		}
 	}
 
+	a := SlicesIndex([]string{"12"}, "12")
+
+	fmt.Println("\nCOUNT", a)
+}
+
+func SlicesIndex[S ~[]E, E comparable](s S, v E) int {
+	for i := range s {
+		if v == s[i] {
+			return i
+		}
+	}
+	return -1
 }

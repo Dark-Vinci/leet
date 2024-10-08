@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func main() {
+func maini() {
 	arguments := os.Args
 	if len(arguments) == 1 {
 		fmt.Println("Please provide a port number!")

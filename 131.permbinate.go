@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"slices"
 	"strings"
 )
@@ -37,7 +36,7 @@ func permutationCombination(s string) int {
 	return len(result)
 }
 
-func main() {
-	a := permutationCombination("ACCCCBC")
-	fmt.Println(a)
-}
+//func main() {
+//	a := permutationCombination("ACCCCBC")
+//	fmt.Println(a)
+//}
