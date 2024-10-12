@@ -1,14 +1,5 @@
 package main
 
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-
 type node struct {
 	infected bool
 	val      *TreeNode
@@ -18,9 +9,12 @@ type node struct {
 }
 
 func amountOfTime(root *TreeNode, start int) int {
-	q := make([]*node, 0)
+	var (
+		q     = make([]*node, 0)
+		dfs   func(parent *node, current *TreeNode) *node
+		count = -1
+	)
 
-	var dfs func(parent *node, current *TreeNode) *node
 	dfs = func(parent *node, current *TreeNode) *node {
 		if current == nil {
 			return nil
@@ -42,7 +36,6 @@ func amountOfTime(root *TreeNode, start int) int {
 	}
 
 	_ = dfs(nil, root)
-	count := -1
 
 	for len(q) > 0 {
 		nextQ := make([]*node, 0)
@@ -80,14 +73,6 @@ func amountOfTime0(root *TreeNode, start int) int {
 		} else {
 			return 1
 		}
-	}
-
-	type node struct {
-		infected bool
-		val      *TreeNode
-		par      *node
-		left     *node
-		right    *node
 	}
 
 	nodes := make([]*node, 0)
