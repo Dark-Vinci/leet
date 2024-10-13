@@ -43,17 +43,17 @@ func amountOfTime(root *TreeNode, start int) int {
 		for i := 0; i < len(q); i++ {
 			c := q[i]
 
-			if c.par != nil && c.par.infected == false {
+			if c.par != nil && !c.par.infected {
 				c.par.infected = true
 				nextQ = append(nextQ, c.par)
 			}
 
-			if c.left != nil && c.left.infected == false {
+			if c.left != nil && !c.left.infected {
 				c.left.infected = true
 				nextQ = append(nextQ, c.left)
 			}
 
-			if c.right != nil && c.right.infected == false {
+			if c.right != nil && !c.right.infected {
 				c.right.infected = true
 				nextQ = append(nextQ, c.right)
 			}
