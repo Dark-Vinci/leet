@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -40,28 +39,28 @@ func minSum(nums []int, target int) int {
 	return result
 }
 
-func minSubArrayLen(target int, nums []int) int {
-	result := math.MaxInt
-
-	for i := 0; i < len(nums); i++ {
-		if nums[i] == target {
-			return 1
-		}
-
-		for j := i + 1; j < len(nums); j++ {
-			fmt.Println(nums[i : j+1])
-			if sum(nums[i:j+1]) == target {
-				result = min(result, j-i+1)
-				continue
-			}
-		}
-	}
-
-	fmt.Println(result)
-
-	if result == math.MaxInt {
-		return 0
-	}
-
-	return result
-}
+//func minSubArrayLen(target int, nums []int) int {
+//	result := math.MaxInt
+//
+//	for i := 0; i < len(nums); i++ {
+//		if nums[i] == target {
+//			return 1
+//		}
+//
+//		for j := i + 1; j < len(nums); j++ {
+//			fmt.Println(nums[i : j+1])
+//			if sum(nums[i:j+1]) == target {
+//				result = min(result, j-i+1)
+//				continue
+//			}
+//		}
+//	}
+//
+//	fmt.Println(result)
+//
+//	if result == math.MaxInt {
+//		return 0
+//	}
+//
+//	return result
+//}
