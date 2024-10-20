@@ -6,7 +6,7 @@ func isCousins(root *TreeNode, x int, y int) bool {
 		curr *TreeNode
 	}
 
-	q := []*node{&node{par: nil, curr: root}}
+	q := []*node{{par: nil, curr: root}}
 
 	for len(q) > 0 {
 		l := len(q)
