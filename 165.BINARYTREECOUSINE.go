@@ -7,7 +7,7 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 		prevVal int
 	}
 
-	q, ind := []*node{&node{par: nil, curr: root, prevVal: root.Val}}, 0
+	q, ind := []*node{{par: nil, curr: root, prevVal: root.Val}}, 0
 
 	for {
 		l := len(q)
@@ -34,7 +34,7 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 					val += q[j].prevVal
 				}
 			}
-			
+
 			c.curr.Val = val
 		}
 
