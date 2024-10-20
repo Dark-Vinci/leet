@@ -52,9 +52,9 @@ func isEvenOddTree(root *TreeNode) bool {
 	return true
 }
 
-func dedupe(arr []int) []int {
-	mp := make(map[int]struct{})
-	result := make([]int, 0)
+func dedupe[T comparable](arr []T) []T {
+	mp := make(map[T]struct{})
+	result := make([]T, 0)
 
 	for i := 0; i < len(arr); i++ {
 		mp[arr[i]] = struct{}{}
