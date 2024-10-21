@@ -5,10 +5,11 @@ func numIslands(grid [][]byte) int {
 		x, y int
 	}
 
-	result, visited := 0, make(map[node]struct{})
-	l1, l2 := len(grid), len(grid[0])
-
-	var dfs func(i, j int)
+	var (
+		dfs             func(i, j int)
+		l1, l2          = len(grid), len(grid[0])
+		result, visited = 0, make(map[node]struct{})
+	)
 
 	dfs = func(i, j int) {
 		if i >= l2 || j >= l1 || i < 0 || j < 0 {

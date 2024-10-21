@@ -5,10 +5,11 @@ func countBattleships(board [][]byte) int {
 		x, y int
 	}
 
-	result, visited := 0, make(map[node]struct{})
-	l1, l2 := len(board), len(board[0])
-
-	var dfs func(isHorizontal bool, i, j int)
+	var (
+		dfs             func(isHorizontal bool, i, j int)
+		l1, l2          = len(board), len(board[0])
+		result, visited = 0, make(map[node]struct{})
+	)
 
 	dfs = func(isHorizontal bool, i, j int) {
 		n := node{x: i, y: j}

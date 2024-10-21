@@ -5,10 +5,11 @@ func maxAreaOfIsland(grid [][]int) int {
 		x, y int
 	}
 
-	l1, l2 := len(grid), len(grid[0])
-	visited, result := make(map[node]struct{}), 0
-
-	var dfs func(count *int, i, j int)
+	var (
+		l1, l2          = len(grid), len(grid[0])
+		visited, result = make(map[node]struct{}), 0
+		dfs             func(count *int, i, j int)
+	)
 
 	dfs = func(count *int, i, j int) {
 		if i >= l2 || j >= l1 || i < 0 || j < 0 {
