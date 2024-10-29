@@ -10,15 +10,15 @@ func Constructor0() MagicDictionary {
 	}
 }
 
-func (this *MagicDictionary) BuildDict(dictionary []string) {
-	this.db = dictionary
+func (t *MagicDictionary) BuildDict(dictionary []string) {
+	t.db = dictionary
 }
 
-func (this *MagicDictionary) Search(searchWord string) bool {
+func (t *MagicDictionary) Search(searchWord string) bool {
 	l := len(searchWord)
 
-	for i := 0; i < len(this.db); i++ {
-		w := this.db[i]
+	for i := 0; i < len(t.db); i++ {
+		w := t.db[i]
 
 		if len(w) != l {
 			continue
