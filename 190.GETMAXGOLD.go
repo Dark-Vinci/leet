@@ -1,10 +1,12 @@
 package main
 
 func getMaximumGold(grid [][]int) int {
-	l1, l2, result := len(grid), len(grid[0]), 0
-	cache := make(map[[2]int]struct{})
-
-	var dfs func(i, j, sum int) int
+	var (
+		dfs    func(i, j, sum int) int
+		cache  = make(map[[2]int]struct{})
+		l1, l2 = len(grid), len(grid[0])
+		result = 0
+	)
 
 	dfs = func(i, j, sum int) int {
 		if i >= l2 || j >= l1 || i < 0 || j < 0 {
@@ -38,9 +40,8 @@ func getMaximumGold(grid [][]int) int {
 
 	for j := 0; j < l1; j++ {
 		for i := 0; i < l2; i++ {
-			clear(cache)
-
 			if grid[j][i] != 0 {
+				clear(cache)
 				mx := dfs(i, j, 0)
 				result = max(result, mx)
 			}

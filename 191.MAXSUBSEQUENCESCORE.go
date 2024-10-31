@@ -57,20 +57,20 @@ func maxScore(nums1 []int, nums2 []int, k int) int64 {
 
 	h := &myHeap{}
 
-	sum := 0
+	maxSum := 0
 
 	for i := 0; i < k; i++ {
 		heap.Push(h, nums1[i])
-		sum += nums1[i]
+		maxSum += nums1[i]
 	}
 
-	mx := sum * nums2[k-1]
+	mx := maxSum * nums2[k-1]
 
 	for i := k; i < len(nums1); i++ {
-		sum -= heap.Pop(h).(int)
-		sum += nums1[i]
+		maxSum -= heap.Pop(h).(int)
+		maxSum += nums1[i]
 		heap.Push(h, nums1[i])
-		mx = max(mx, sum*nums2[i])
+		mx = max(mx, maxSum*nums2[i])
 	}
 
 	return int64(mx)
