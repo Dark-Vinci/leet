@@ -3,6 +3,7 @@ package main
 import (
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 func decodeString(s string) string {
@@ -13,7 +14,7 @@ func decodeString(s string) string {
 	for i := 0; i < len(s); i++ {
 		e := string(s[i])
 
-		if _, err := strconv.Atoi(e); err == nil {
+		if unicode.IsDigit(rune(s[i])) {
 			num += e
 			continue
 		}
