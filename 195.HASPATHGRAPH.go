@@ -29,18 +29,18 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 	return dfs(list, source, destination)
 }
 
-func toAdjList(edges [][]int) map[int][]int {
-	result := make(map[int][]int)
+func toAdjList[T comparable](edges [][]T) map[T][]T {
+	result := make(map[T][]T)
 
 	for _, val := range edges {
 		u, v := val[0], val[1]
 
 		if _, ok := result[u]; !ok {
-			result[u] = []int{}
+			result[u] = []T{}
 		}
 
 		if _, ok := result[v]; !ok {
-			result[v] = []int{}
+			result[v] = []T{}
 		}
 
 		result[u] = append(result[u], v)
