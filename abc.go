@@ -5,6 +5,63 @@ import (
 	"fmt"
 )
 
+func tracePath(mat [][]string, s, d string) string {
+	var (
+		graph   = adjMatToList(mat)
+		cache   = make(map[string]string)
+		visited = make(map[string]struct{})
+		dfs     func(g map[string][]string, s string) string
+	)
+
+	dfs = func(g map[string][]string, s string) string {
+		if _, ok := visited[s]; ok {
+			return ""
+		}
+
+		visited[s] = struct{}{}
+
+		curr, result := g[s], ""
+
+		for i := 0; i < len(curr); i++ {
+			if res := dfs(g, curr[i]); res != "" {
+				result = res
+				break
+			}
+		}
+
+		if result != "" {
+			result = fmt.Sprintf("%v", s) + "->" + result
+		}
+
+		cache[s] = result
+
+		return result
+	}
+
+	return dfs(graph, s)
+}
+
+func adjMatToList(m [][]string) map[string][]string {
+	result := make(map[string][]string)
+
+	for _, val := range m {
+		u, v := val[0], val[1]
+
+		if _, ok := result[u]; !ok {
+			result[u] = []string{}
+		}
+
+		if _, ok := result[v]; !ok {
+			result[v] = []string{}
+		}
+
+		result[u] = append(result[u], v)
+		result[v] = append(result[v], u)
+	}
+
+	return result
+}
+
 //func pacificAtlantic(heights [][]int) [][]int {
 //	result := make([][]int, 0)
 //	l1, l2 := len(heights), len(heights[0])
