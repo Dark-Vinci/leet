@@ -5,6 +5,103 @@ import (
 	"fmt"
 )
 
+func shortest(graph map[string][]string, source, destination string) int {
+	type nope struct {
+		value string
+		count int
+	}
+
+	var (
+		q       = []nope{{value: source, count: 0}}
+		visited = map[string]struct{}{}
+	)
+
+	for len(q) > 0 {
+		curr := q[0]
+		q = q[1:]
+
+		if _, ok := visited[curr.value]; ok {
+			continue
+		}
+
+		visited[curr.value] = struct{}{}
+
+		if curr.value == destination {
+			return curr.count
+		}
+
+		g := graph[curr.value]
+
+		for i := 0; i < len(g); i++ {
+			q = append(q, nope{value: g[i], count: curr.count + 1})
+		}
+	}
+
+	return -1
+}
+
+func maxIsland(graph map[int][]int) int {
+	var (
+		result  = 0
+		visited = make(map[int]struct{})
+		dfs     func(g map[int][]int, s int) int
+	)
+
+	dfs = func(g map[int][]int, s int) int {
+		if _, ok := visited[s]; ok {
+			return 0
+		}
+
+		visited[s] = struct{}{}
+
+		curr, res := g[s], 1
+
+		for i := 0; i < len(curr); i++ {
+			res += dfs(g, curr[i])
+		}
+
+		return res
+	}
+
+	for k, _ := range graph {
+		result = max(result, dfs(graph, k))
+	}
+
+	return result
+}
+
+func countDisconnectedGraphs(graph map[string][]string) int {
+	var (
+		result  = 0
+		visited = make(map[string]struct{})
+		dfs     func(g map[string][]string, s string) bool
+	)
+
+	dfs = func(g map[string][]string, s string) bool {
+		if _, ok := visited[s]; ok {
+			return false
+		}
+
+		visited[s] = struct{}{}
+
+		curr := g[s]
+
+		for _, v := range curr {
+			dfs(g, v)
+		}
+
+		return true
+	}
+
+	for k := range graph {
+		if dfs(graph, k) {
+			result++
+		}
+	}
+
+	return result
+}
+
 func tracePath(mat [][]string, s, d string) string {
 	var (
 		graph   = adjMatToList(mat)
