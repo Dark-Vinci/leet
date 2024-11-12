@@ -62,7 +62,7 @@ func (pq *PriorityQueue) update(item *Item, dist int) {
 	heap.Fix(pq, item.index)
 }
 
-func Djks(g *Graph, start int) map[int]int {
+func (g *Graph) Djks(start int) map[int]int {
 	result := map[int]int{}
 
 	for nod := range g.edges {
