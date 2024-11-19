@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"slices"
 )
 
@@ -47,7 +46,6 @@ func incremovableSubarrayCountNOT(nums []int) int {
 	dfs = func(db []int, count int) {
 		if count == len(nums) {
 			if isIncreasing(db) {
-				fmt.Println(db)
 				result++
 			}
 
@@ -67,8 +65,3 @@ func incremovableSubarrayCountNOT(nums []int) int {
 
 	return result
 }
-
-//
-//func main() {
-//	fmt.Println(incremovableSubarrayCount([]int{1, 2, 3, 4}))
-//}
