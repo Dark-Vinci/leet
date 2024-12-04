@@ -12,7 +12,6 @@ func diffWaysToCompute(expression string) []int {
 		if v, ok := memo[exp]; ok {
 			return v
 		}
-
 		if len(exp) <= 2 {
 			v, _ := strconv.Atoi(exp)
 			return []int{v}
@@ -23,7 +22,6 @@ func diffWaysToCompute(expression string) []int {
 		for i, v := range exp {
 			if v == '+' || v == '-' || v == '*' {
 				left, right := dfs(exp[:i]), dfs(exp[i+1:])
-
 				for _, l := range left {
 					for _, r := range right {
 						if v == '+' {
@@ -39,7 +37,6 @@ func diffWaysToCompute(expression string) []int {
 		}
 
 		memo[exp] = ans
-
 		return ans
 	}
 

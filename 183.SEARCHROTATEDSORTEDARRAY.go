@@ -1,6 +1,5 @@
 package main
 
-// NEED TO UNDERSTAND THIS EVIL
 func search(nums []int, target int) int {
 	l, r := 0, len(nums)-1
 
