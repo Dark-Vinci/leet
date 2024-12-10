@@ -31,9 +31,9 @@ func combination(s string) int {
 	return len(solution)
 }
 
-func main() {
-	fmt.Println(combination("1010"))
-}
+//func main() {
+//	fmt.Println(combination("1010"))
+//}
 
 func formula(s string) int {
 	num := factorial(len(s))
