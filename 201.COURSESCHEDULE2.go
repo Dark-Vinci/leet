@@ -4,7 +4,7 @@ import "fmt"
 
 func findOrder(numCourses int, prerequisites [][]int) []int {
 	var (
-		list     = make(map[int][]int, 0)
+		list     = make(map[int][]int)
 		visited  = make(map[int]struct{})
 		visiting = make(map[int]struct{})
 		dfs      func(int) bool
