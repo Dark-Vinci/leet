@@ -1,7 +1,49 @@
 package main
 
-// NOT ALL TEST CASES PASSED
 func countCompleteComponents(n int, edges [][]int) int {
+	var (
+		result    = 0
+		visited   = make(map[int]struct{})
+		edgeCount = make(map[int]struct{})
+		dfs       func(int)
+		list      = toAdjList(edges)
+		current   int
+	)
+
+	dfs = func(s int) {
+		path := list[s]
+		edgeCount[len(path)] = struct{}{}
+		current += 1
+
+		for _, p := range path {
+			if _, ok := visited[p]; !ok {
+				visited[p] = struct{}{}
+				dfs(p)
+			}
+		}
+	}
+
+	for i := range n {
+		clear(edgeCount)
+		current = 0
+
+		if _, ok := visited[i]; !ok {
+			visited[i] = struct{}{}
+			dfs(i)
+
+			if len(edgeCount) == 1 {
+				if _, ok := edgeCount[current-1]; ok {
+					result++
+				}
+			}
+		}
+	}
+
+	return result
+}
+
+// NOT ALL TEST CASES PASSED -> APPARENTLY; THIS DOESN;T WORK
+func countCompleteComponentsWrong(n int, edges [][]int) int {
 	var (
 		visited = make(map[int]struct{})
 		list    = toAdjList(edges)
