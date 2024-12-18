@@ -4,11 +4,15 @@ import "slices"
 
 func allPathsSourceTarget(graph [][]int) [][]int {
 	var (
-		n      = len(graph)
-		list   = adjList(graph)
 		result = make([][]int, 0)
 		dfs    func(i int, pocket []int)
+		list   = make(map[int][]int)
+		n      = len(graph)
 	)
+
+	for i, val := range graph {
+		list[i] = val
+	}
 
 	dfs = func(i int, pocket []int) {
 		if i == n-1 {
@@ -25,16 +29,6 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 	}
 
 	dfs(0, []int{})
-
-	return result
-}
-
-func adjList(graph [][]int) map[int][]int {
-	result := make(map[int][]int)
-
-	for i, val := range graph {
-		result[i] = val
-	}
 
 	return result
 }
