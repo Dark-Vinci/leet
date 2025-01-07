@@ -45,7 +45,7 @@ type UnionFind struct {
 	rank []int
 }
 
-func New(n int) *UnionFind {
+func NewUnionFind(n int) *UnionFind {
 	p, r := make([]int, n), make([]int, n)
 
 	for i := range n {
@@ -82,7 +82,7 @@ func (u *UnionFind) Union(a, b int) {
 
 func findCircleNumUnionFind(isConnected [][]int) int {
 	var (
-		uf  = New(len(isConnected))
+		uf  = NewUnionFind(len(isConnected))
 		set = make(map[int]struct{})
 	)
 
