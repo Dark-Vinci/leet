@@ -5,6 +5,7 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 		dfs         func(i int) bool
 		visited     = make(map[int]struct{})
 		parentCount = make([]int, n)
+		root        = -1
 	)
 
 	for i := 0; i < n; i++ {
@@ -25,7 +26,6 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 		}
 	}
 
-	root := -1
 	for i := 0; i < n; i++ {
 		if parentCount[i] == 0 {
 			if root != -1 {
