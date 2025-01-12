@@ -31,7 +31,7 @@ func kruskalMst(n int, edges [][]int, force []int) int {
 		u, v, w := force[0], force[1], force[2]
 
 		graph = append([]edge{
-			edge{
+			{
 				from:   u,
 				to:     v,
 				weight: w,
@@ -42,15 +42,15 @@ func kruskalMst(n int, edges [][]int, force []int) int {
 	result, count := 0, 0
 	u := NewUnionFind(n)
 
-	for _, edge := range graph {
+	for _, edj := range graph {
 		if count > n-1 {
 			break
 		}
 
-		if u.Find(edge.from) != u.Find(edge.to) {
+		if u.Find(edj.from) != u.Find(edj.to) {
 			count++
-			result += edge.weight
-			u.Union(edge.from, edge.to)
+			result += edj.weight
+			u.Union(edj.from, edj.to)
 		}
 	}
 
