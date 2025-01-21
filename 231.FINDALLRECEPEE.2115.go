@@ -8,6 +8,7 @@ func findAllRecipes(recipes []string, ingredients [][]string, supplies []string)
 		result          = make([]string, 0)
 		dfs             func(ind int) bool
 		visited         = make(map[int]bool)
+		visiting        = make(map[int]struct{})
 	)
 
 	for _, val := range supplies {
@@ -28,8 +29,6 @@ func findAllRecipes(recipes []string, ingredients [][]string, supplies []string)
 			}
 		}
 	}
-
-	visiting := make(map[int]struct{})
 
 	dfs = func(ind int) bool {
 		if res, ok := visited[ind]; ok {
