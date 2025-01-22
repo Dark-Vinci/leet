@@ -5,7 +5,83 @@ import (
 	"slices"
 )
 
+type UF struct {
+	par map[int]int
+}
+
+func NewUF(n int) *UF {
+	par := make(map[int]int)
+
+	for i := range n {
+		par[i+1] = i + 1
+	}
+
+	return &UF{par}
+}
+
+func (u *UF) Find(a int) int {
+	if u.par[a] != a {
+		u.par[a] = u.Find(u.par[a])
+	}
+
+	return u.par[a]
+}
+
+func (u *UF) Union(a, b int) bool {
+	parA, parB := u.Find(a), u.Find(b)
+
+	if parA == parB {
+		return false
+	}
+
+	u.par[a] = b
+
+	return true
+}
+
+func helper(edges [][]int, n int) ([]int, bool) {
+	u := NewUF(n)
+
+	for _, edg := range edges {
+		if !u.Union(edg[0], edg[1]) {
+			return edg, true // visiting a visited AKA CYCLE
+		}
+	}
+
+	return []int{}, false
+}
+
 func findRedundantDirectedConnection(edges [][]int) []int {
+	parentDB, n := make(map[int]int), len(edges)
+
+	for i := 0; i < len(edges); i++ {
+		edj := edges[i]
+
+		edges = slices.Delete(edges, i, i+1)
+
+		// has two parents which is invalid, so we try to remove one of the parent connection
+		if _, ok := parentDB[edj[1]]; ok {
+			redundEdge := []int{parentDB[edj[1]], edj[1]}
+
+			// contains cycle
+			if _, ok := helper(edges, n); ok {
+				return redundEdge
+			}
+
+			// doesn't contain cycle; so we return the current edge
+			return edj
+		}
+
+		parentDB[edj[1]] = edj[0]
+		edges = slices.Insert(edges, i, edj)
+	}
+
+	edj, _ := helper(edges, n)
+
+	return edj
+}
+
+func findRedundantDirectedConnection_NOT_ALL_PASSING(edges [][]int) []int {
 	var dfs func(lst map[int][]int, visited map[int]struct{}, curr int, count *int) bool
 	n := len(edges)
 	result := []int{}
