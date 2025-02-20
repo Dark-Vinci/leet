@@ -6,20 +6,23 @@ type tract struct {
 }
 
 func countTexts(pressedKeys string) int {
-	keys := map[string]int{
-		"2": 3,
-		"3": 3,
-		"4": 3,
-		"5": 3,
-		"6": 3,
-		"7": 4,
-		"8": 3,
-		"9": 4,
-	}
-
-	split := make([]tract, 0)
-
-	t := tract{val: string(pressedKeys[0]), count: 1}
+	var (
+		keys = map[string]int{
+			"2": 3,
+			"3": 3,
+			"4": 3,
+			"5": 3,
+			"6": 3,
+			"7": 4,
+			"8": 3,
+			"9": 4,
+		}
+		split  = make([]tract, 0)
+		t      = tract{val: string(pressedKeys[0]), count: 1}
+		result = 1
+		dfs    func(l, n, mx int) int
+		memo   = make(map[int]int)
+	)
 
 	for i := 1; i < len(pressedKeys); i++ {
 		current := string(pressedKeys[i])
@@ -44,9 +47,6 @@ func countTexts(pressedKeys string) int {
 		}
 	}
 
-	var dfs func(l, n, mx int) int
-	memo := make(map[int]int)
-
 	dfs = func(l, n, mx int) int {
 		if val, ok := memo[n]; ok {
 			return val
@@ -69,8 +69,6 @@ func countTexts(pressedKeys string) int {
 
 		return result % 1000000007
 	}
-
-	result := 1
 
 	for _, value := range split {
 		count, val := value.count, value.val
