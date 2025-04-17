@@ -4,6 +4,57 @@ import (
 	"cmp"
 )
 
+func canCross_(stones []int) bool {
+	mp := make(map[int]struct{})
+	
+	dp := make([]bool, len(stones))
+	ks := map[int]int {0: 1}
+	
+	for _, v := range stones {
+		mp[v] = struct{}{}
+	}
+	
+	dp[0] = true
+	
+	for i := 0; i < len(stones); i++ {
+		if i == 0 {
+			k, _ := ks[i]
+			
+			if _, ok := mp[i + k]; ok {
+				dp[i + k] = true
+				ks[i + k] = k
+			}
+			
+			continue
+		}
+		
+		if !dp[i] {
+			continue
+		}
+		
+		k, _ := ks[i] //
+		
+		if _, ok := mp[i + k]; ok {
+			dp[i + k] = true
+			ks[i + k] = k
+		}
+		
+		if _, ok := mp[i + k + 1]; ok {
+			dp[i + k + 1] = true
+			ks[i + k + 1] = k + 1
+		}
+		
+		if k - 1 > 0 {
+			if _, ok := mp[i + k - 1]; ok {
+				dp[i + k - 1] = true
+				ks[i + k - 1] = k - 1
+			}
+		} 
+	}
+	
+	return dp[len(stones) - 1]
+}
+
 func canCross(stones []int) bool {
     var (
         memo = make(map[[2]int]bool)
