@@ -1,3 +1,5 @@
+package dynamicProgramming
+
 func numWays(words []string, target string) int {
     var (
         dfs func (i int, n int) int
