@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -96,8 +95,8 @@ func gridTraveller(m, n int) int {
 	return grid[m][n]
 }
 
-func main() {
-	res := showConstruct("abcdef", []string{"ab", "abc", "cd", "def", "abcd", "ef", "c"})
+// func main() {
+// 	res := showConstruct("abcdef", []string{"ab", "abc", "cd", "def", "abcd", "ef", "c"})
 
-	fmt.Println(res)
-}
+// 	fmt.Println(res)
+// }

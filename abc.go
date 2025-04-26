@@ -63,7 +63,7 @@ func maxIsland(graph map[int][]int) int {
 		return res
 	}
 
-	for k, _ := range graph {
+	for k := range graph {
 		result = max(result, dfs(graph, k))
 	}
 
