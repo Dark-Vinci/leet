@@ -1,44 +1,44 @@
 package main
 
 func mergeKLists(lists []*ListNode) *ListNode {
-    if len(lists) == 0 {
-        return nil
-    }
+	if len(lists) == 0 {
+		return nil
+	}
 
-    result := lists[0]
+	result := lists[0]
 
-    for _, node := range lists[1:] {
-        head := new(ListNode)
-        decoy := head
+	for _, node := range lists[1:] {
+		head := new(ListNode)
+		decoy := head
 
-        for result != nil && node != nil {
-            if result.Val < node.Val {
-                decoy.Next = &ListNode{ Val: result.Val }
-                result = result.Next
-            } else {
-                decoy.Next = &ListNode{ Val: node.Val }
-                node = node.Next
-            }
+		for result != nil && node != nil {
+			if result.Val < node.Val {
+				decoy.Next = &ListNode{Val: result.Val}
+				result = result.Next
+			} else {
+				decoy.Next = &ListNode{Val: node.Val}
+				node = node.Next
+			}
 
-            decoy = decoy.Next
-        }
+			decoy = decoy.Next
+		}
 
-        for result != nil {
-            decoy.Next = &ListNode{ Val: result.Val }
+		for result != nil {
+			decoy.Next = &ListNode{Val: result.Val}
 
-            result = result.Next
-            decoy = decoy.Next
-        }
+			result = result.Next
+			decoy = decoy.Next
+		}
 
-        for node != nil {
-            decoy.Next = &ListNode{ Val: node.Val }
+		for node != nil {
+			decoy.Next = &ListNode{Val: node.Val}
 
-            node = node.Next
-            decoy = decoy.Next
-        }
+			node = node.Next
+			decoy = decoy.Next
+		}
 
-        result = head.Next
-    }
+		result = head.Next
+	}
 
-    return result
+	return result
 }

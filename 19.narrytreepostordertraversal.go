@@ -1,22 +1,22 @@
 package main
 
 type Node struct {
-	Val int
+	Val      int
 	Children []*Node
 }
 
 func postorder(root *Node) []int {
-    if root == nil {
-        return []int{}
-    }
+	if root == nil {
+		return []int{}
+	}
 
-    children := make([]int, 0)
+	children := make([]int, 0)
 
-    for _, v := range root.Children {
-        children = append(children, postorder(v)...)
-    }
+	for _, v := range root.Children {
+		children = append(children, postorder(v)...)
+	}
 
-    children = append(children, root.Val)
+	children = append(children, root.Val)
 
-    return children
+	return children
 }

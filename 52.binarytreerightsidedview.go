@@ -1,32 +1,32 @@
 package main
 
 func rightSideView(root *TreeNode) []int {
-    if root == nil {
-        return nil
-    }
+	if root == nil {
+		return nil
+	}
 
-    q := []*TreeNode{root}
-    nodeValues := make([]int, 0)
+	q := []*TreeNode{root}
+	nodeValues := make([]int, 0)
 
-    for len(q) > 0 {
-        l := len(q)
+	for len(q) > 0 {
+		l := len(q)
 
-        nodeValues = append(nodeValues, q[l-1].Val)
+		nodeValues = append(nodeValues, q[l-1].Val)
 
-        for i := 0; i < l; i++ {
-            currentNode := q[0]
+		for i := 0; i < l; i++ {
+			currentNode := q[0]
 
-            q = q[1:]
+			q = q[1:]
 
-            if currentNode.Left != nil {
-                q = append(q, currentNode.Left)
-            }
+			if currentNode.Left != nil {
+				q = append(q, currentNode.Left)
+			}
 
-            if currentNode.Right != nil {
-                q = append(q, currentNode.Right)
-            }
-        }
-    }
+			if currentNode.Right != nil {
+				q = append(q, currentNode.Right)
+			}
+		}
+	}
 
-    return nodeValues
+	return nodeValues
 }

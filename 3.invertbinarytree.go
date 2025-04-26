@@ -1,12 +1,12 @@
 package main
 
 func invertTree(root *TreeNode) *TreeNode {
-    if root != nil {
-        root.Left, root.Right = root.Right, root.Left
+	if root != nil {
+		root.Left, root.Right = root.Right, root.Left
 
-        invertTree(root.Left)
-        invertTree(root.Right)
-    }
+		invertTree(root.Left)
+		invertTree(root.Right)
+	}
 
-    return root
+	return root
 }

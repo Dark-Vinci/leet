@@ -1,46 +1,46 @@
 package main
 
 func pathSum(root *TreeNode, targetSum int) [][]int {
-    result := make([][]int, 0)
+	result := make([][]int, 0)
 
-    if root == nil {
-        return result
-    }
+	if root == nil {
+		return result
+	}
 
-    var path func(a *TreeNode, b []int)
+	var path func(a *TreeNode, b []int)
 
-    path = func(a *TreeNode, b []int) {
-        if a == nil {
-            return
-        }
+	path = func(a *TreeNode, b []int) {
+		if a == nil {
+			return
+		}
 
-        b = append(b, a.Val)
+		b = append(b, a.Val)
 
-        if a.Left == nil && a.Right == nil {
-            sum := 0
+		if a.Left == nil && a.Right == nil {
+			sum := 0
 
-            for _, v := range b {
-                sum += v
-            }
+			for _, v := range b {
+				sum += v
+			}
 
-            if sum == targetSum {
-                result = append(result, b)
-            }
+			if sum == targetSum {
+				result = append(result, b)
+			}
 
-            return
-        }
+			return
+		}
 
-        cp := make([]int, len(b))
+		cp := make([]int, len(b))
 
-        copy(cp, b)
+		copy(cp, b)
 
-        path(a.Left, cp)
-        path(a.Right, cp)
+		path(a.Left, cp)
+		path(a.Right, cp)
 
-        return
-    }
+		return
+	}
 
-    path(root, []int{})
+	path(root, []int{})
 
-    return result
+	return result
 }

@@ -1,38 +1,38 @@
 package main
 
 func findBottomLeftValue(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
+	if root == nil {
+		return 0
+	}
 
-    q := []*TreeNode{root}
+	q := []*TreeNode{root}
 
-    var depth int
+	var depth int
 
-    for len(q) > 0 {
-        length := len(q)
+	for len(q) > 0 {
+		length := len(q)
 
-        changed := false
+		changed := false
 
-        for i := 0; i < length; i++ {
-            current := q[0]
+		for i := 0; i < length; i++ {
+			current := q[0]
 
-            if !changed {
-                depth = q[0].Val
-                changed = true
-            }
+			if !changed {
+				depth = q[0].Val
+				changed = true
+			}
 
-            q = q[1:]
+			q = q[1:]
 
-            if current.Left != nil {
-                q = append(q, current.Left)
-            }
+			if current.Left != nil {
+				q = append(q, current.Left)
+			}
 
-            if current.Right != nil {
-                q = append(q, current.Right)
-            }
-        }
-    }
+			if current.Right != nil {
+				q = append(q, current.Right)
+			}
+		}
+	}
 
-    return depth
+	return depth
 }

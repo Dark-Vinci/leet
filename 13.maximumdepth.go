@@ -1,28 +1,28 @@
 package main
 
 func maxDepth(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
+	if root == nil {
+		return 0
+	}
 
-    var depth func (r *TreeNode, max int) int
+	var depth func(r *TreeNode, max int) int
 
-    depth = func(r *TreeNode, max int) int {
-        if r == nil {
-            return max
-        }
+	depth = func(r *TreeNode, max int) int {
+		if r == nil {
+			return max
+		}
 
-        max += 1
+		max += 1
 
-        a := depth(r.Left, max) 
-        b := depth(r.Right, max)
+		a := depth(r.Left, max)
+		b := depth(r.Right, max)
 
-        if a > b {
-            return a
-        }
+		if a > b {
+			return a
+		}
 
-        return b
-    }
+		return b
+	}
 
-    return depth(root, 0)
+	return depth(root, 0)
 }

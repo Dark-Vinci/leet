@@ -9,7 +9,7 @@ func allPossibleFBT(n int) []*TreeNode {
 		if len(cache[n]) > 0 {
 			return cache[n]
 		}
-		
+
 		if n%2 == 0 {
 			return []*TreeNode{nil}
 		}

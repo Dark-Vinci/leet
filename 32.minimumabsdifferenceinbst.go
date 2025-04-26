@@ -3,33 +3,32 @@ package main
 import "math"
 
 func getMinimumDifference(root *TreeNode) int {
-    minValue := math.MaxInt
-    var prev *TreeNode
+	minValue := math.MaxInt
+	var prev *TreeNode
 
-    var dfs func (node *TreeNode)
+	var dfs func(node *TreeNode)
 
-    dfs = func (node *TreeNode) {
-        if node == nil {
-            return
-        }
+	dfs = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
 
-        dfs(node.Left)
+		dfs(node.Left)
 
-        if prev != nil {
-            diff := abs(node.Val - prev.Val)
+		if prev != nil {
+			diff := abs(node.Val - prev.Val)
 
-            if diff < minValue {
-                minValue = diff
-            }
-        }
+			if diff < minValue {
+				minValue = diff
+			}
+		}
 
-        prev = node
-        
-        dfs(node.Right)
-    }
+		prev = node
 
+		dfs(node.Right)
+	}
 
-    dfs(root)
+	dfs(root)
 
-    return minValue
+	return minValue
 }

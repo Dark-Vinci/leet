@@ -1,41 +1,41 @@
 package main
 
 func findTilt(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
-    
-    sum := 0
+	if root == nil {
+		return 0
+	}
 
-    var dfs func (node *TreeNode) (*TreeNode, int)
+	sum := 0
 
-    dfs = func (node *TreeNode) (*TreeNode, int) {
-        if node == nil {
-            return nil, 0
-        }
+	var dfs func(node *TreeNode) (*TreeNode, int)
 
-        if node.Left == nil && node.Right == nil {
-            return &TreeNode{ Val: 0 }, node.Val
-        }
+	dfs = func(node *TreeNode) (*TreeNode, int) {
+		if node == nil {
+			return nil, 0
+		}
 
-        lNode, lValues := dfs(node.Left)
-        rNode, rValues := dfs(node.Right)
+		if node.Left == nil && node.Right == nil {
+			return &TreeNode{Val: 0}, node.Val
+		}
 
-        diff := abs(lValues - rValues)
-        
-        sum += diff
+		lNode, lValues := dfs(node.Left)
+		rNode, rValues := dfs(node.Right)
 
-        newVal := node.Val + rValues + lValues
+		diff := abs(lValues - rValues)
 
-        return &TreeNode{
-            Val: diff,
-            Left: lNode,
-            Right: rNode,
-        },
-        newVal
-    }
+		sum += diff
 
-    dfs(root)
+		newVal := node.Val + rValues + lValues
 
-    return sum
+		return &TreeNode{
+				Val:   diff,
+				Left:  lNode,
+				Right: rNode,
+			},
+			newVal
+	}
+
+	dfs(root)
+
+	return sum
 }
