@@ -15,7 +15,7 @@ func allPossibleFBT(n int) []*TreeNode {
 		}
 
 		if n == 1 {
-			return []*TreeNode{&TreeNode{Val: 0}}
+			return []*TreeNode{{Val: 0}}
 		}
 
 		result := make([]*TreeNode, 0)
