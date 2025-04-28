@@ -42,8 +42,10 @@ func maximumSafenessFactor(grid [][]int) int {
     )
 
     prelim = func() map[[2]int] int {
-        q := [][3]int{}
-        distMap := make(map[[2]int] int)
+        var (
+	       	q = [][3]int{}
+	        distMap = make(map[[2]int] int)
+        )
 
         for i := range l {
             for j := range l {
