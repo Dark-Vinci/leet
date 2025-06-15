@@ -22,3 +22,5 @@ func countStrings(n int) int {
 
 	return helper(n, map[int]int{})
 }
+
+// ITERATIVE METHOD
