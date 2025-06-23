@@ -1,5 +1,8 @@
 package main
 
+//Platform: Leetcode
+//Link: https://leetcode.com/problems/difference-between-ones-and-zeros-in-row-and-column/description/
+
 func onesMinusZeros(grid [][]int) [][]int {
 	var (
 		result = make([][]int, len(grid))

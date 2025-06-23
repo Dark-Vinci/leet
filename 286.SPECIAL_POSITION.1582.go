@@ -1,5 +1,8 @@
 package main
 
+//Platform: Leetcode
+//Link: https://leetcode.com/problems/special-positions-in-a-binary-matrix/description/
+
 func numSpecial(mat [][]int) int {
 	var (
 		y      = len(mat)

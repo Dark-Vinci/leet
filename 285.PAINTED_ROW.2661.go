@@ -1,6 +1,6 @@
 package main
 
-//platform: Leetcode
+//Platform: Leetcode
 //Link: https://leetcode.com/problems/first-completely-painted-row-or-column/
 
 func firstCompleteIndex(arr []int, mat [][]int) int {
