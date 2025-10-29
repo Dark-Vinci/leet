@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
 	if start == destination {

@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func lemonadeChange(bills []int) bool {
 	five, ten := 0, 0

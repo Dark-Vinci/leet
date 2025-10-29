@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func goodDaysToRobBank(security []int, time int) []int {
 	var (

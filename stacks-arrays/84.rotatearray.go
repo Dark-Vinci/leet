@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func rotate(nums []int, k int) {
 	numLen := len(nums)

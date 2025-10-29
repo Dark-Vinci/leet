@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func findAnagrams(s string, p string) []int {
 	var (

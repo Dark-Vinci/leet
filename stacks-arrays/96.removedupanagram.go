@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func removeAnagrams(words []string) []string {
 	result := make([]string, 0)

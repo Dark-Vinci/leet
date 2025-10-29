@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func moveZeroes(nums []int) {
 	nNums := make([]int, 0)

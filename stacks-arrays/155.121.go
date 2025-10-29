@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func maxProfit(prices []int) int {
 	minimum, result := prices[0], 0

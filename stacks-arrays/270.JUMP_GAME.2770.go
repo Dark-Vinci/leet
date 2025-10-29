@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 import "new_apps/rust_build/melonnu/Trees"
 

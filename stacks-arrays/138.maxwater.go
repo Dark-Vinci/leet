@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func maxArea(height []int) int {
 	left, right, result := 0, len(height)-1, 0

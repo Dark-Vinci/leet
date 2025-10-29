@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func maxWidthRamp(nums []int) int {
 	maxRight := make([]int, len(nums))

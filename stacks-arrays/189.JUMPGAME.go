@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func canJump(nums []int) bool {
 	l := len(nums)

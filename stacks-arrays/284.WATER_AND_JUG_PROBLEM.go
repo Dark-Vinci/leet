@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func canMeasureWater(x int, y int, target int) bool {
 	var (

@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func nextPermutation(arr []int) {
 	l := len(arr)

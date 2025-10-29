@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func minSwaps(s string) int {
 	closeCount, maxCloseCount := 0, 0

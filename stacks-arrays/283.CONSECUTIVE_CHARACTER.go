@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func maxPower(s string) int {
 	result, count := 1, 1

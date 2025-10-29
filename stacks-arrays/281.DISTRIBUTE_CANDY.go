@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func distributeCandies(n int, limit int) int {
 	result := 0

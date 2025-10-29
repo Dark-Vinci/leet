@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 // Preferred solution
 func numberOfAlternatingGroups1(colors []int, k int) int {

@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func canThreePartsEqualSum(arr []int) bool {
 	sum := arr[0]

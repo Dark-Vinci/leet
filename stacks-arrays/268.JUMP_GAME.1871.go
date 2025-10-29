@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func canReach(s string, minJump int, maxJump int) bool {
 	dp, l := make([]bool, len(s)), len(s)

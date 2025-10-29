@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func findPoisonedDuration(timeSeries []int, duration int) int {
 	count := 0

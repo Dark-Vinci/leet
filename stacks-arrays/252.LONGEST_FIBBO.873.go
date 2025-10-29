@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func lenLongestFibSubseq(arr []int) int {
 	var (

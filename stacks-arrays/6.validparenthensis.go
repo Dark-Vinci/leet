@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func isValid1(s string) bool {
 	if len(s)%2 != 0 || len(s) == 0 {

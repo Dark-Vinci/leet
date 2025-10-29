@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func canConstruct(ransomNote string, magazine string) bool {
 	db := make(map[byte]int)

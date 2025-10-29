@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 type MagicDictionary struct {
 	db []string

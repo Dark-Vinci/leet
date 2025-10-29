@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func longestValidParentheses(s string) int {
 	var (

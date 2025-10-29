@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func longestOnes(nums []int, k int) int {
 	l, result, zeros := 0, 0, 0

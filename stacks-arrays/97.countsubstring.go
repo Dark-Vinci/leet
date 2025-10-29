@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func countSubstrings(s string, c byte) int64 {
 	result, count := int64(0), 0

@@ -1,3 +1,3 @@
-module new_apps/rust_build/melonnu
+module github.com/dark-vinci/leet
 
 go 1.22.1

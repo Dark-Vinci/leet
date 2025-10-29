@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func maxContainers(n int, w int, maxWeight int) int {
 	var (

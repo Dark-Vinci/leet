@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func triangularSum(nums []int) int {
 	for len(nums) > 1 {

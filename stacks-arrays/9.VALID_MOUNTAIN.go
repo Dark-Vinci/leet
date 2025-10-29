@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func validMountainArray(nums []int) bool {
 	if len(nums) < 3 {

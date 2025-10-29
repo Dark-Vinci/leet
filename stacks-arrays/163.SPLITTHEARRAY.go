@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func isPossibleToSplit(nums []int) bool {
 	db := make(map[int]int)

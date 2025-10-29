@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func minAddToMakeValid(s string) int {
 	q := make([]byte, 0)

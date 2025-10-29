@@ -1,4 +1,4 @@
-package stacks_arrays
+package arrays
 
 func minOperations(nums []int) int {
 	result := 0
